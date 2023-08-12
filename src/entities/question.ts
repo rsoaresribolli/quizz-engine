@@ -16,6 +16,10 @@ export class Question {
         this._createdAt = this._createdAt ?? new Date();
     }
 
+    public get id() {
+        return this._id;
+    }
+
     public get answers() {
         return this._answers;
     }
