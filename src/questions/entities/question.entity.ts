@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import { Answer } from "./answer";
+import { Answer } from "./answer.entity";
 
 export class Question {
     private _id: string;

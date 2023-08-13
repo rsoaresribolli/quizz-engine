@@ -1,5 +1,5 @@
-import { Answer } from "../../src/entities/answer";
-import { Question } from "../../src/entities/question";
+import { Answer } from "../../src/questions/entities/answer.entity";
+import { Question } from "../../src/questions/entities/question.entity";
 
 describe("Question", () => {
     it("should have answers and correct answers", () => {

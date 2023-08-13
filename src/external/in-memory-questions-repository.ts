@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { Answer } from "src/entities/answer";
-import { Question } from "src/entities/question";
+import { Answer } from "src/questions/entities/answer.entity";
+import { Question } from "src/questions/entities/question.entity";
 import { QuestionsRepository } from "src/repositories/questions-repository";
 
 const correctAnswers = [

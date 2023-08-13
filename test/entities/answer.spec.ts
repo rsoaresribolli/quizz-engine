@@ -1,4 +1,4 @@
-import { Answer } from "../../src/entities/answer"
+import { Answer } from "../../src/questions/entities/answer.entity"
 
 describe("Answer", () => {
     it("should be able to create an answer", () => {
