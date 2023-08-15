@@ -5,34 +5,34 @@ describe("Question", () => {
     it("should have answers and correct answers", () => {
         // Arrange
         const correctAnswers: Answer[] = [
-            new Answer("answer3"),
-            new Answer("answer4")
+            new Answer({text: "answer3", isCorrect: true}),
+            new Answer({text: "answer4", isCorrect: true})
         ];
         
         const answers: Answer[] = [
-            new Answer("answer1"),
-            new Answer("answer2"),
+            new Answer({text: "answer1"}),
+            new Answer({text: "answer2"}),
             ...correctAnswers
         ];
 
         // Act
-        const question = new Question("Questio 1", answers, correctAnswers);
+        const question = new Question("Questio 1", answers);
 
         // Assert
         expect(question.answers).toBe(answers);
-        expect(question.correctAnswers).toBe(correctAnswers);
+        expect(question.correctAnswers).toStrictEqual(correctAnswers);
     });
 
     it("should allow to check incorrect answer", () => {
         // Arrange
         const correctAnswers: Answer[] = [
-            new Answer("answer3"),
-            new Answer("answer4")
+            new Answer({text: "answer3", isCorrect: true}),
+            new Answer({text: "answer4", isCorrect: true})
         ];
         
         const answers: Answer[] = [
-            new Answer("answer1"),
-            new Answer("answer2"),
+            new Answer({text: "answer1"}),
+            new Answer({text: "answer2"}),
             ...correctAnswers
         ];
 
@@ -40,7 +40,7 @@ describe("Question", () => {
             answers[1]
         ];
 
-        const question = new Question("Questio 1", answers, correctAnswers);
+        const question = new Question("Questio 1", answers);
 
         // Act
         const isAnswerCorrect = question.isAnswerCorrect(chosenAnswers);
@@ -52,13 +52,13 @@ describe("Question", () => {
     it("should allow to check correct answer", () => {
         // Arrange
         const correctAnswers: Answer[] = [
-            new Answer("answer3"),
-            new Answer("answer4")
+            new Answer({text: "answer3", isCorrect: true}),
+            new Answer({text: "answer4", isCorrect: true})
         ];
         
         const answers: Answer[] = [
-            new Answer("answer1"),
-            new Answer("answer2"),
+            new Answer({text: "answer1"}),
+            new Answer({text: "answer2"}),
             ...correctAnswers
         ];
 
@@ -66,7 +66,7 @@ describe("Question", () => {
             ...correctAnswers
         ];
 
-        const question = new Question("Questio 1", answers, correctAnswers);
+        const question = new Question("Questio 1", answers);
 
         // Act
         const isAnswerCorrect = question.isAnswerCorrect(chosenAnswers);

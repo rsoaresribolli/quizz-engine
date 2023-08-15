@@ -5,14 +5,12 @@ export class Question {
     private _id: string;
     private _statement: string;
     private _answers: Answer[];
-    private _correctAnswers: Answer[];
     private _createdAt: Date;
 
-    constructor(statement: string, answers: Answer[], correctAnswers: Answer[], id?: string) {
+    constructor(statement: string, answers: Answer[], id?: string) {
         this._id = id ?? randomUUID();
         this._statement = statement;
         this._answers = answers;
-        this._correctAnswers = correctAnswers;
         this._createdAt = this._createdAt ?? new Date();
     }
 
@@ -25,12 +23,12 @@ export class Question {
     }
 
     public get correctAnswers() {
-        return this._correctAnswers;
+        return this._answers.filter(elem => elem.isCorrect);
     }
 
     public isAnswerCorrect(answers: Answer[]) {
-        const haveSameNumberOfAnswers = answers.length === this._correctAnswers.length;
-        const areAnswersEqual = answers.every(a => this._correctAnswers.some(ca => ca.id === a.id));
+        const haveSameNumberOfAnswers = answers.length === this.correctAnswers.length;
+        const areAnswersEqual = answers.every(a => this.correctAnswers.some(ca => ca.id === a.id));
         return  haveSameNumberOfAnswers && areAnswersEqual;
     }
 
