@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { QuestionsRepository } from "./repositories/questions-repository";
+import { QuestionsRepository } from "./questions/repositories/questions-repository";
 import { InMemoryRepository } from "./external/in-memory-questions-repository";
 
 @Module({
