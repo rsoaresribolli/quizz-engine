@@ -20,6 +20,7 @@ model Question {
 model Answer {
   id String @id
   text String
+  isCorrect Boolean
   question Question @relation(fields: [questionId], references: [id])
   questionId String
 }
